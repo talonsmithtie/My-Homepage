@@ -47,6 +47,10 @@ layout: default
       <section class="page__content" itemprop="text">
         {{ content }}
 
+        {% if page.code_status %}
+          <p><strong>Code:</strong> {% if page.codeurl %}<a href="{{ page.codeurl }}" target="_blank" rel="noopener">{{ page.code_status }}</a>{% else %}{{ page.code_status }}{% endif %}</p>
+        {% endif %}
+
         {%- assign has_any_link = page.paperurl or page.slidesurl or page.bibtexurl or page.codeurl -%}
 
         {%- if page.citation -%}

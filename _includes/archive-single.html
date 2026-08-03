@@ -55,6 +55,10 @@
     {% if post.citation %}
       <p>Recommended citation: {{ post.citation }}</p>
     {% endif %}
+
+    {% if post.code_status %}
+      <p><strong>Code:</strong> {% if post.codeurl %}<a href="{{ post.codeurl }}" target="_blank" rel="noopener">{{ post.code_status }}</a>{% else %}{{ post.code_status }}{% endif %}</p>
+    {% endif %}
     
     {% if post.paperurl or post.slidesurl or post.bibtexurl or post.codeurl %}
       <p>
@@ -71,7 +75,7 @@
           {% if post.codeurl %} | {% endif %}
         {% endif %}
         {% if post.codeurl %}
-          <a href="{{ post.codeurl }}">GitHub</a>
+          <a href="{{ post.codeurl }}" target="_blank" rel="noopener">GitHub</a>
         {% endif %}
       </p>
     {% endif %}
